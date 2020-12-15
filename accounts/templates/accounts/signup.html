@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% if error %}
+{{ error }}
+<br />
+<br />
+{% endif %}
+
+<center>
+    <h4>
+    با سلام
+    <br />
+    با تشکر از انتخاب و عضویت شما در این سایت
+    <br />
+    لطفا نام کاربری و کلمه عبوری برای خود انتخاب کنید
+        <br />
+        توجه : سیستم در صورت تکراری بودن نام کاربری با خطا مواجه می شوید لطفا نام کاربری دیگری را انتخاب و وارد کنید
+        <br />
+        توجه : در انتخاب و وارد کردن رمز عبور یا تکرار آن دقت کنید
+</h4>
+    <p>
+        <br />
+    </p>
+<h1>ثبت نام</h1>
+
+<form method="POST" action="{% url 'signup' %}">
+{% csrf_token %}
+    <br />
+    <br />
+    <br />
+    <h5>نام کاربری:</h5>
+<input type="text" name="username" />
+<br />
+    <br />
+
+<h5>رمز عبور :</h5>
+
+<input type="password" name="password1" />
+<br />
+    <br />
+<h5>تکرار رمز عبور :</h5>
+
+<input type="password" name="password2" />
+<br />
+<br />
+<input class="btn btn-primary" type="submit" value="ثبت نام" />
+</form>
+</center>
+{% endblock %}

@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="row">
+  <div class="col-2">
+    <img src="{{ hunter.icon.url }}" class="img-fluid" />
+  </div>
+  <div class="col-10">
+<!--    <a href="{{ hunter.url }}">-->
+        <h1>{{ hunter.title }}</h1></a>
+  </div>
+</div>
+<div>
+    <h5>
+        <br />
+    </h5>
+</div>
+
+<div class="row">
+  <div class="col-8">
+    <img src="{{ hunter.image.url }}" class="img-fluid" />
+  </div>
+ <h3>
+     <br />
+ </h3>
+</div>
+<div class="row pt-5">
+  <div class="col-3">
+    <h4> آگهی از :{{ hunter.hunter.username }}</h4>
+  </div>
+  <div class="col-4 text-right">
+    <h4> {{ hunter.pub_date_pretty }}<h5>       <br /> <br /> <br /></h5></h4>
+  </div>
+</div>
+
+</div>
+<div class="row">
+  <div class="col-8">
+    <h3><p>{{ hunter.body }}</p></h3>
+      <br />
+      <br />
+      <br />
+
+  </div>
+</div>
+
+<div class="col-4">
+    <a href="{% url 'home' %}"><button class="btn btn-primary btn-lg btn-block"> برگشت</button></a>
+  </div>
+<form id="upvote" method="POST" action="{% url 'upvote' hunter.id %}">
+  {% csrf_token%}
+  <input type="hidden">
+</form>
+
+{% endblock %}

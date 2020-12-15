@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% if error %}
+{{ error }}
+<br />
+<br />
+{% endif %}
+<center>
+    <h4>
+        <br />
+        در این قسمت شما می توانید کتاب های خود را برای فروش آگهی کنید
+        <br />
+        در پر کردن فیلد های زیر لطفا دقت کنید
+        <br />
+        در بخش قیمت ذکر کردن قیمت پشت جلد و قیمت دست دوم با کسر ۲۵٪ الزامی است
+        <br />
+        با تشکر از انتخاب شما
+    </h4>
+    <p>
+        <br />
+        <br />
+
+    </p>
+<h1>ثبت آگهی :</h1>
+
+<form method="POST" action="{% url 'create' %}" enctype="multipart/form-data">
+{% csrf_token %}
+    <br />
+    <br />
+
+<h5>نام کتاب :</h5>
+<input type="text" name="title" />
+<br />
+    <br />
+
+<h5>قیمت :</h5>
+<input type="textbox" name="body" />
+<br />
+    <br />
+<!--URL:-->
+<!--<br />-->
+<!--<input type="text" name="url" />-->
+<!--<br />-->
+
+<h5>آیکون :</h5>
+<input type="file" name="icon" />
+<br />
+    <br />
+<h5>تصویر :</h5>
+<input type="file" name="image" />
+<br />
+<br />
+<input class="btn btn-primary" type="submit" value="ثبت" />
+</form>
+</center>
+{% endblock %}

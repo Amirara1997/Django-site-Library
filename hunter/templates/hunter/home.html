@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% for hunter in hunters.all %}
+<div class="row pt-3">
+  <div class="col-2" onclick="window.location='{% url 'detail' hunter.id %}';" style="cursor: pointer;">
+    <img src="{{ hunter.icon.url }}" class="img-fluid" />
+  </div>
+  <div class="col-6" onclick="window.location='{% url 'detail' hunter.id %}';" style="cursor: pointer;">
+    <h1>{{ hunter.title }}</h1>
+    <p>{{ hunter.summary }}</p>
+  </div>
+<!--  <div class="col-4">-->
+<!--    <a href="javascript:{document.getElementById('upvote{{ hunter.id }}').submit()}"><button class="btn btn-primary btn-lg btn-block"><span class="oi oi-caret-top"></span> Upvote {{ hunter.votes_total }}</button></a>-->
+<!--  </div>-->
+<!--</div>-->
+
+<!--<form id="upvote{{ hunter.id }}" method="POST" action="{% url 'upvote' hunter.id %}">-->
+<!--  {% csrf_token%}-->
+<!--  <input type="hidden">-->
+<!--</form>-->
+{% endfor %}
+
+{% endblock %}
